@@ -1,0 +1,26 @@
+.section {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    margin: 50px;
+  }
+  
+  .text-large {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin-right: 80px;
+  }
+  
+  .text-small {
+    font-size: 16px;
+    color: white;
+    margin-top: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+  }

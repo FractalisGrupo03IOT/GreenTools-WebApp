@@ -1,0 +1,39 @@
+<div class="centered-input">
+    <div class="example-container">
+        <div class="form-and-line-container">
+            <mat-form-field appearance="outline" class="small-input">
+                <input matInput [(ngModel)]="input1Value" maxlength="1" (keypress)="soloNumeroLetras($event, 'input1Value')">
+            </mat-form-field>
+            <div style="border-bottom: 3px solid black; position: relative; top: -25px; width: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+
+        <div class="form-and-line-container">
+            <mat-form-field appearance="outline" class="small-input">
+                <input matInput [(ngModel)]="input2Value" maxlength="1" (keypress)="soloNumeroLetras($event, 'input2Value')">
+            </mat-form-field>
+            <div style="border-bottom: 3px solid black; position: relative; top: -25px; width: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+
+        <div class="form-and-line-container">
+            <mat-form-field appearance="outline" class="small-input">
+                <input matInput [(ngModel)]="input3Value" maxlength="1" (keypress)="soloNumeroLetras($event, 'input3Value')">
+            </mat-form-field>
+            <div style="border-bottom: 3px solid black; position: relative; top: -25px; width: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+
+        <div class="form-and-line-container">
+            <mat-form-field appearance="outline" class="small-input">
+                <input matInput [(ngModel)]="input4Value" maxlength="1" (keypress)="soloNumeroLetras($event, 'input4Value')">
+            </mat-form-field>
+            <div style="border-bottom: 3px solid black; position: relative; top: -25px; width: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+
+        <div class="form-and-line-container">
+            <mat-form-field appearance="outline" class="small-input">
+                <input matInput [(ngModel)]="input5Value" maxlength="1" (keypress)="soloNumeroLetras($event, 'input5Value')">
+            </mat-form-field>
+            <div style="border-bottom: 3px solid black; position: relative; top: -25px; width: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </div>
+    <button mat-raised-button class="button-styles" (click)="onSave()">Save</button>
+</div>
