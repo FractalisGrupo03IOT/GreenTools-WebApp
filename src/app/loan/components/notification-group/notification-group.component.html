@@ -1,0 +1,13 @@
+<div *ngIf="hasNotifications; else noNotifications">
+    <div *ngFor="let group of groupedNotifications">
+        <h3 class="date">{{ group.date }}</h3>
+        <div *ngFor="let notification of group.notifications">
+            <app-notification-card [notification]="notification"></app-notification-card>
+        </div>
+    </div>
+</div>
+<ng-template #noNotifications>
+    <div class="no-notifications">
+        <p>You don't have notifications</p>
+    </div>
+</ng-template>

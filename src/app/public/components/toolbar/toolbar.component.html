@@ -1,0 +1,18 @@
+<mat-toolbar style="background-color: #363636;">
+    <mat-toolbar-row class="navigation-links">
+        <img src="../../../assets/logo/image.png" alt="Img logo bar">
+        <span class="name">GreenTools</span>
+        <span class="example-spacer"></span>
+        <span class="navigation-link" [routerLink]= "['/flowerpots/list']">Stations</span>
+        <span class="navigation-link" [routerLink]= "['/add/pot']">Add</span>
+        <span class="navigation-link" [routerLink]="['/plant/view']">Plants</span>
+        <span class="navigation-link" [routerLink]= "['/profile']">Profile</span>
+        <button mat-icon-button aria-label="notifications icon-button" class="navigation-link" style="color: white;" (click)="toggleNotifications()">
+            <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="exit_to_app icon-button" style="color: white;" >
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<app-notification></app-notification>
