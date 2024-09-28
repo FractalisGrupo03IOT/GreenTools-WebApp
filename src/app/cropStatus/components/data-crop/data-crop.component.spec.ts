@@ -4,10 +4,10 @@ import { DataCropComponent } from './data-crop.component';
 
 describe('DataCropComponent', () => {
   let component: DataCropComponent;
-  let fixture: ComponentFixture<DataCropComponent>;
+  let fixture: ComponentFixture<DataCropComponent>; 
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async () => { 
+    await TestBed.configureTestingModule({ 
       imports: [DataCropComponent]
     })
     .compileComponents();
