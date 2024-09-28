@@ -1,10 +1,9 @@
 <div class="station-cards">
   <div *ngFor="let station of stations" class="station-card">
-    <mat-card class="example-card" (click)="goToPlants(station.id)">
-      <img mat-card-image [src]="station.image" alt="{{station.name}}">
+    <mat-card class="example-card" (click)="goToPlants(station.name, station.id)">
+      <img mat-card-image class="station-image" [src]="station.image" alt="{{station.name}}">
       <mat-card-content>
-        <h3>{{station.name}}</h3>
-        <p>Created on: {{station.dateCreation}}</p>
+        <h3 class="station-name">{{station.name}}</h3>
       </mat-card-content>
     </mat-card>
   </div>

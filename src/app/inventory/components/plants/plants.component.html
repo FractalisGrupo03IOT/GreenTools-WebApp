@@ -1,14 +1,17 @@
-<div class="plant-cards">
-  <div *ngFor="let plant of plants" class="plant-card">
-    <mat-card class="example-card" (click)="goToReport()">
-      <mat-card-header>
-        <mat-card-title>{{ plant.name }}</mat-card-title>
-        <mat-card-subtitle>ID: {{ plant.id }}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="plant.image" alt="{{plant.name}}" class="plant-image">
-      <mat-card-content>
-        <p>Status</p>
-      </mat-card-content>
-    </mat-card>
+<div class="crop-plants">
+  <h1 class = "station-name">{{stationName}}</h1>
+  <div class="plant-cards">
+    <div *ngFor="let plant of plants" class="plant-card">
+      <mat-card class="example-card" (click)="goToReport(plant.name)">
+        <h3 class = "plant-name"> {{ plant.name }} </h3>
+        <img mat-card-image [src]="plant.image" alt="{{plant.name}}" class="plant-image">
+        <mat-card-content>
+          <button class="status-button">
+            Status
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
+

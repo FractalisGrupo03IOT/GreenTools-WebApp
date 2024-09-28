@@ -23,8 +23,8 @@ export class StationComponent implements OnInit{
     })
   }
 
-  goToPlants(stationId: number): void {
-    this.router.navigate(['/crops/plants', stationId]);
+  goToPlants(stationName: string, stationId: number): void {
+    this.router.navigate(['/crops/plants', stationName, stationId]);
   }
 
 }

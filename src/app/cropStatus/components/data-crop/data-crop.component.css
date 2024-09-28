@@ -11,3 +11,31 @@ table {
   background-color: #FFFFFF; /* Fondo de las celdas */
   color: #3A795D; /* Color del texto de las celdas */
 }
+
+.data-crop {
+  height: 80vh;
+  text-align: center;
+}
+
+.table-data-crop {
+  padding: 50px;
+  margin: 20px 10vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  border: 1px solid lightslategray;
+  border-radius: 20px;
+}
+
+.station-name {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  font-weight: bold;
+  justify-content: center;
+  margin: 20px 20px 5px 20px;
+  display: inline-block;
+  text-align: center;
+}

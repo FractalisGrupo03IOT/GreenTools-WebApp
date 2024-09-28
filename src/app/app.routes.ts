@@ -10,6 +10,6 @@ export const routes: Routes = [
     { path: 'membership/upgrade', component: RecoverPasswordComponent },
     { path: 'crops/notifications', component: RecoverPasswordConfirmationComponent },
     { path: 'crops/station', component: CropInventoryComponent },
-    { path: 'crops/plants/:stationId', component: CropPlantsComponent },
-    { path: 'crops/data', component: CropDataTableComponent },
+    { path: 'crops/plants/:cropName/:stationId', component: CropPlantsComponent },
+    { path: 'crops/data/:cropName', component: CropDataTableComponent },
 ];

@@ -15,6 +15,7 @@ import {CommonModule} from "@angular/common";
 export class PlantsComponent implements OnInit{
   plants: Plant[] = [];
   stationId!: number;
+  stationName!: string;
 
   constructor(private cropService: CropsService, private route:ActivatedRoute, private router: Router) {
   }
@@ -22,9 +23,10 @@ export class PlantsComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.stationId = +params['stationId'];
+      this.stationName = params['cropName'];
       this.loadPlants(this.stationId);
     });
-    console.log(this.plants)
+    console.log(this.stationName)
   }
 
   loadPlants(stationId: number): void {
@@ -33,8 +35,8 @@ export class PlantsComponent implements OnInit{
     });
   }
 
-  goToReport(){
-    this.router.navigate(["/crops/data"]);
+  goToReport(cropName: string){
+    this.router.navigate(["/crops/data", cropName]);
   }
 
 }

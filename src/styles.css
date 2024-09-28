@@ -5,7 +5,7 @@
   --primary-color: #A8D5BA; /* Verde Claro */
   --primary-dark-color: #3A795D; /* Verde Oscuro */
   --accent-color: #D0605E; /* Rojo */
-  --background-color: #FFFFFF; /* Blanco */
+  --background-color: rgb(168,213,186); /* Blanco */
   --text-color: #3A795D; /* Color de texto primario */
 }
 

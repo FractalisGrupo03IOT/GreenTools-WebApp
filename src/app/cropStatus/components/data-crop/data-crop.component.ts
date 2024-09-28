@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from "@angular/material/table";
+import {ActivatedRoute} from "@angular/router";
 
 interface DataEntry {
   fecha: string;
@@ -16,16 +17,24 @@ interface DataEntry {
   styleUrls: ['./data-crop.component.css']  // Cambiar a styleUrls
 })
 export class DataCropComponent implements OnInit {
+  cropName!: string;
   displayedColumns: string[] = ['fecha', 'humedad', 'uvSolar', 'temperatura'];
   dataSource: DataEntry[] = [];
 
+  constructor(private route:ActivatedRoute) {
+  }
+
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.cropName = params['cropName'];
+    })
     this.generateData();
   }
 
   generateData(): void {
     const startDate = new Date(2024, 8, 1); // Septiembre de 2024
-    for (let i = 0; i < 5; i++) {
+    let quantity = Math.floor(Math.random() * (9 - 4 + 1)) + 4;
+    for (let i = 0; i < quantity; i++) {
       const currentDate = new Date(startDate);
       currentDate.setDate(startDate.getDate() + i);
       const entry: DataEntry = {
