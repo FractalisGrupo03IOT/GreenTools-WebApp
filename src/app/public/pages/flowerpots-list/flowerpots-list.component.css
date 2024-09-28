@@ -1,0 +1,9 @@
+.welcome-user-container {
+    display: flex;
+    justify-content: end;
+}
+
+.my-flowerpots-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

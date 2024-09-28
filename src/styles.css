@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  /* Variables de color para GreenTools */
+  --primary-color: #A8D5BA; /* Verde Claro */
+  --primary-dark-color: #3A795D; /* Verde Oscuro */
+  --accent-color: #D0605E; /* Rojo */
+  --background-color: #FFFFFF; /* Blanco */
+  --text-color: #3A795D; /* Color de texto primario */
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  background-color: var(--background-color); /* Fondo blanco */
+  color: var(--text-color); /* Color de texto en verde oscuro */
+}
+
+/* Estilos para botones */
+button {
+  background-color: var(--accent-color); /* Botones rojos */
+  color: #fff; /* Texto blanco */
+  border-radius: 4px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Estilos para tarjetas */
+.mat-card {
+  background-color: var(--primary-color); /* Fondo de la tarjeta en verde claro */
+  color: var(--primary-dark-color); /* Texto en verde oscuro */
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-title,
+.mat-card-subtitle {
+  color: var(--primary-dark-color); /* Colores de los títulos */
+}
+
+/* Estilos para botones de acción */
+.mat-button {
+  background-color: var(--accent-color); /* Botón de acción rojo */
+  color: var(--background-color); /* Texto blanco */
+}

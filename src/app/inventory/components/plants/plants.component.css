@@ -1,0 +1,31 @@
+.plant-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.plant-card {
+  width: 200px;
+}
+
+.example-card {
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+}
+
+.plant-image {
+  width: 100%;       /* La imagen ocupará todo el ancho del contenedor */
+  height: 200px;     /* Fija la altura a 200px */
+  object-fit: cover; /* Mantiene la relación de aspecto y asegura que no se deforme */
+  display: block;
+  margin: 0 auto;    /* Centra la imagen */
+}
+
+.status-circle {
+  background-color: red;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
