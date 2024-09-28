@@ -8,15 +8,15 @@ describe('DataCropComponent', () => {
 
   beforeEach(async () => {  
     await TestBed.configureTestingModule({ 
-      imports: [DataCropComponent]
+      imports: [DataCropComponent] 
     })
     .compileComponents(); 
  
-    fixture = TestBed.createComponent(DataCropComponent); 
+    fixture = TestBed.createComponent(DataCropComponent);  
     component = fixture.componentInstance;
     fixture.detectChanges(); 
   });
- 
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   }); 
