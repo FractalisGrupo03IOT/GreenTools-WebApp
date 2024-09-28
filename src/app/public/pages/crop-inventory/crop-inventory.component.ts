@@ -7,7 +7,7 @@ import {ToolbarComponent} from "../../components/toolbar/toolbar.component";
   standalone: true,
   imports: [
     StationComponent,
-    ToolbarComponent
+    ToolbarComponent,
   ],
   templateUrl: './crop-inventory.component.html',
   styleUrl: './crop-inventory.component.css'

@@ -11,5 +11,5 @@ export const routes: Routes = [
     { path: 'crops/notifications', component: RecoverPasswordConfirmationComponent },
     { path: 'crops/station', component: CropInventoryComponent },
     { path: 'crops/plants/:stationId', component: CropPlantsComponent },
-    { path: 'crops/plants/report', component: CropDataTableComponent },
+    { path: 'crops/data', component: CropDataTableComponent },
 ];

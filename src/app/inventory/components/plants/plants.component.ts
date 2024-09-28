@@ -34,7 +34,7 @@ export class PlantsComponent implements OnInit{
   }
 
   goToReport(){
-    this.router.navigate(["/crops/plants/report"]);
+    this.router.navigate(["/crops/data"]);
   }
 
 }
