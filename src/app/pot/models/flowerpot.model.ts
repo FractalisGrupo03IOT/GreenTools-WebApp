@@ -3,26 +3,26 @@ export interface FlowerpotRequest {
     active: boolean,
     lastTemprature: number,
     lastHumidity: number,
-    lastSunlight: number
+    lastSunlight: number 
 }
 
 export interface FlowerpotResponse {
     id: number,
-    code: string,
+    code: string, 
     active: boolean,
-    lastTemperature: number,
-    lastHumidity: number,
-    lastSunlight: number
+    lastTemperature: number, 
+    lastHumidity: number, 
+    lastSunlight: number 
 }
 
 export enum SensorType {
-    TEMPERATURE = 'TEMPERATURE',
-    HUMIDITY = 'HUMIDITY',
-    SUNLIGHT = 'SUNLIGHT'
+    TEMPERATURE = 'TEMPERATURE', 
+    HUMIDITY = 'HUMIDITY', 
+    SUNLIGHT = 'SUNLIGHT' 
 }
 
 export interface SensorResponse {
-    sensorType: SensorType;
-    value: number;
-    timestamp: string;
+    sensorType: SensorType; 
+    value: number; 
+    timestamp: string; 
 }
