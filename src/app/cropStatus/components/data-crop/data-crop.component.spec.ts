@@ -11,13 +11,13 @@ describe('DataCropComponent', () => {
       imports: [DataCropComponent]
     })
     .compileComponents();
-
+ 
     fixture = TestBed.createComponent(DataCropComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.detectChanges(); 
   });
-
+ 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  }); 
 });
