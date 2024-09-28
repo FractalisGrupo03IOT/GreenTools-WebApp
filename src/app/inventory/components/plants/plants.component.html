@@ -1,0 +1,15 @@
+<p>plants works!</p>
+<div class="plant-cards">
+  <div *ngFor="let plant of plants" class="plant-card">
+    <mat-card class="example-card" (click)="goToReport()">
+      <mat-card-header>
+        <mat-card-title>{{ plant.name }}</mat-card-title>
+        <mat-card-subtitle>ID: {{ plant.id }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="plant.image" alt="{{plant.name}}" class="plant-image">
+      <mat-card-content>
+        <p>Status</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

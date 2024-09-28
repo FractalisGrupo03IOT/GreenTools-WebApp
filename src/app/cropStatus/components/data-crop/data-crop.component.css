@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  background-color: #A8D5BA; /* Fondo de encabezado */
+  color: #3A795D; /* Color del texto del encabezado */
+}
+
+.mat-cell {
+  background-color: #FFFFFF; /* Fondo de las celdas */
+  color: #3A795D; /* Color del texto de las celdas */
+}

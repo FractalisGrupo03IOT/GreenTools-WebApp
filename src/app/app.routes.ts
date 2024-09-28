@@ -1,13 +1,15 @@
 import { Routes } from '@angular/router';
 import { RecoverPasswordComponent } from './public/pages/recover-password/recover-password.component';
 import { RecoverPasswordConfirmationComponent } from './public/pages/recover-password-confirmation/recover-password-confirmation.component';
-import { FlowerpotsListComponent } from './public/pages/flowerpots-list/flowerpots-list.component';
-import { AddPotComponent } from './public/pages/add-pot/add-pot.component';
+import {CropInventoryComponent} from "./public/pages/crop-inventory/crop-inventory.component";
+import {CropPlantsComponent} from "./public/pages/crop-plants/crop-plants.component";
+import {CropDataTableComponent} from "./public/pages/crop-data-table/crop-data-table.component";
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/flowerpots/list', pathMatch: 'full' },
-    { path: 'recover/password', component: RecoverPasswordComponent },
-    { path: 'recover/password/confirmation/:message', component: RecoverPasswordConfirmationComponent },
-    { path: 'flowerpots/list', component: FlowerpotsListComponent },
-    { path: 'add/pot', component: AddPotComponent },
+    { path: '', redirectTo: '/crops/station', pathMatch: 'full' },
+    { path: 'membership/upgrade', component: RecoverPasswordComponent },
+    { path: 'crops/notifications', component: RecoverPasswordConfirmationComponent },
+    { path: 'crops/station', component: CropInventoryComponent },
+    { path: 'crops/plants/:stationId', component: CropPlantsComponent },
+    { path: 'crops/plants/report', component: CropDataTableComponent },
 ];

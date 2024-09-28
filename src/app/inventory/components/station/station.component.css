@@ -1,0 +1,16 @@
+.station-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.station-card {
+  width: 200px;
+}
+
+.example-card {
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+}

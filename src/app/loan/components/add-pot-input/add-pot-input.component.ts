@@ -40,7 +40,7 @@ export class AddPotInputComponent {
 
     this.flowerpotService.getFlowerpotByCode(code).subscribe(
       (flowerpot) => {
-        
+
         this.router.navigate(['/code/confirmation', "valid"]);
       },
       (error) => {
