@@ -6,13 +6,13 @@ describe('DataCropComponent', () => {
   let component: DataCropComponent;
   let fixture: ComponentFixture<DataCropComponent>; 
 
-  beforeEach(async () => { 
+  beforeEach(async () => {  
     await TestBed.configureTestingModule({ 
       imports: [DataCropComponent]
     })
-    .compileComponents();
+    .compileComponents(); 
  
-    fixture = TestBed.createComponent(DataCropComponent);
+    fixture = TestBed.createComponent(DataCropComponent); 
     component = fixture.componentInstance;
     fixture.detectChanges(); 
   });
