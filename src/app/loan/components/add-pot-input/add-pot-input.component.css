@@ -29,13 +29,7 @@
     flex-direction: row;
   }
 
-  .form-and-line-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 10px;
-  }
+
 
   .button-styles {
       margin-top: 15px;
