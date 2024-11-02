@@ -1,62 +1,70 @@
+/* Centra el contenido de entrada en el medio de la pantalla */
 .centered-input {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
+}
 
-  .code-input:focus {
+/* Elimina el borde alrededor del campo de entrada cuando está enfocado */
+.code-input:focus {
     outline: none;
-  }
+}
 
-  .small-input {
+/* Define el tamaño de un campo de entrada pequeño */
+.small-input {
     width: 60px;
     height: 80px;
-  }
+}
 
-  .small-input input {
+/* Ajusta el estilo del texto dentro del campo de entrada pequeño */
+.small-input input {
     font-size: 36px;
     text-align: center;
     align-items: center;
-  }
+}
 
-  .example-container {
+/* Estilo para el contenedor de ejemplos, con fondo, márgenes y bordes redondeados */
+.example-container {
     background-color: #EDEDED;
     padding: 8px 20px 0px;
     margin-bottom: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: row;
-  }
+}
 
+/* Estilos personalizados para los botones, incluyendo tamaño, margen, y fuente */
+.button-styles {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 200px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: bold;
+}
 
-
-  .button-styles {
-      margin-top: 15px;
-      margin-bottom: 30px;
-      width: 200px;
-      height: 56px;
-      font-size: 16px;
-      font-weight: bold;
-  }
-
-  ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading {
+/* Cambia el color del borde en los campos de texto con el estilo mdc-text-field */
+::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading {
     border-color: #EDEDED !important;
-  }
+}
 
-  ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__notch {
+::ng-deep .mdc-text-field--outlined .mdc-notched-outline__notch {
     border-color: #EDEDED !important;
-  }
+}
 
-  ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__trailing {
+::ng-deep .mdc-text-field--outlined .mdc-notched-outline__trailing {
     border-color: #EDEDED !important;
-  }
+}
 
-  ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled){
+/* Cambia el color de fondo en los campos de texto mdc-text-field cuando no están deshabilitados */
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) {
     background-color: #EDEDED !important;
-  }
+}
 
-  ::ng-deep .mat-mdc-raised-button:not(:disabled) {
-      background-color: #276749 !important;
-      color: white !important;
-  }
+/* Cambia el color de fondo y texto en los botones raised de Angular Material cuando no están deshabilitados */
+::ng-deep .mat-mdc-raised-button:not(:disabled) {
+    background-color: #276749 !important;
+    color: white !important;
+}
+
