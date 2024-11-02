@@ -22,7 +22,6 @@ export class AddPotInputComponent {
   input3Value: string = '';
   input4Value: string = '';
   input5Value: string = '';
-  input6Value: string = '';
 
   soloNumeroLetras(event: any, inputField: 'input1Value' | 'input2Value' | 'input3Value' | 'input4Value' | 'input5Value') {
     const inputValue = event.key;
