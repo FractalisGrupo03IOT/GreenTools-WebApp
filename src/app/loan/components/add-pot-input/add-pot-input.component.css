@@ -37,7 +37,14 @@
     margin: 0px 10px;
   }
 
-
+  .button-styles {
+      margin-top: 15px;
+      margin-bottom: 30px;
+      width: 200px;
+      height: 56px;
+      font-size: 16px;
+      font-weight: bold;
+  }
 
   ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading {
     border-color: #EDEDED !important;
