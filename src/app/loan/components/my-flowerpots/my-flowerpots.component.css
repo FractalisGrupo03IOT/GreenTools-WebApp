@@ -1,18 +1,2 @@
 /* Centra el contenido de entrada en el medio de la pantalla */
-.centered-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
-/* Elimina el borde alrededor del campo de entrada cuando está enfocado */
-.code-input:focus {
-    outline: none;
-}
-
-/* Define el tamaño de un campo de entrada pequeño */
-.small-input {
-    width: 60px;
-    height: 80px;
-}
