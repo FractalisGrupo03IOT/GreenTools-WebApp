@@ -1,43 +1,91 @@
+/* Toolbar general */
 mat-toolbar {
-    padding: 5px 0px;
-    justify-content: center;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .name {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .navigation-links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    margin-right: auto;
-    font-weight: bold;
-  }
-  
-  .navigation-links img {
-    height: 120%;
-    margin-right: 10px;
-  }
-  
-  .navigation-link {
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 0 20px;
-    margin-right: 30px;
-  }
-  
-  .navigation-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-  }
-  
+  padding: 8px 0;
+  background-color: #3a795d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+/* Logo */
+.logo {
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Nombre del sitio */
+.name {
+  font-size: 26px;
+  font-weight: 600;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Contenedor de enlaces de navegación */
+.navigation-links {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  margin-right: auto;
+}
+
+/* Enlaces de navegación */
+.navigation-link {
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  padding: 10px 16px;
+  margin-right: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Efecto de subrayado animado en el enlace */
+.navigation-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.navigation-link:hover::after {
+  width: 100%;
+}
+
+.navigation-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Botones de iconos */
+.icon-button {
+  color: white;
+  margin-left: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-button:hover {
+  transform: scale(1.1) rotate(-5deg);
+  color: #e0e0e0;
+}
+
+/* Efecto de enfoque para accesibilidad */
+button[mat-icon-button]:focus,
+.navigation-link:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+app-notification {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 1000;
+}

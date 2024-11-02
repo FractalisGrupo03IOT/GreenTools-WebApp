@@ -1,7 +1,72 @@
-<div class="greeting-container">
-    <div class="greeting-text">
-      <p class="greeting">Good morning <span class="wave">👋</span></p>
-      <p class="name">{{name}}</p>
-    </div>
-    <img src={{photo}} alt="Profile Picture" class="profile-picture">
+<app-toolbar></app-toolbar>
+
+<div class="profile-container">
+  <mat-card class="welcome-card">
+    <mat-card-title>Bienvenido, {{ name }}</mat-card-title>
+    <mat-card-subtitle>Buenos días<span class="wave">👋</span></mat-card-subtitle>
+  </mat-card>
+
+  <img [src]="profileImage" alt="Profile Image" class="profile-image" />
+
+  <div class="profile-details-grid">
+    <mat-card class="profile-detail-card">
+      <mat-card-content>
+        <mat-icon>person</mat-icon>
+        <div class="profile-text">
+          <strong>Nombre Completo:</strong>
+          <p>{{ name }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="profile-detail-card">
+      <mat-card-content>
+        <mat-icon>email</mat-icon>
+        <div class="profile-text">
+          <strong>Email:</strong>
+          <p>{{ email }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="profile-detail-card">
+      <mat-card-content>
+        <mat-icon>home</mat-icon>
+        <div class="profile-text">
+          <strong>Dirección:</strong>
+          <p>{{ fullAddress }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="profile-detail-card">
+      <mat-card-content>
+        <mat-icon>location_city</mat-icon>
+        <div class="profile-text">
+          <strong>Ciudad:</strong>
+          <p>{{ city }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="profile-detail-card">
+      <mat-card-content>
+        <mat-icon>flag</mat-icon>
+        <div class="profile-text">
+          <strong>País:</strong>
+          <p>{{ country }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="profile-detail-card">
+      <mat-card-content>
+        <mat-icon>local_post_office</mat-icon>
+        <div class="profile-text">
+          <strong>Código Postal:</strong>
+          <p>{{ zipCode }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
+</div>

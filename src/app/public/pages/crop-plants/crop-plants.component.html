@@ -1,12 +1,40 @@
-<body>
 <app-toolbar></app-toolbar>
+
 <div class="section">
-  <div class="text-large">Add Flowerpot</div>
-  <div class="text-small">Find the pot code in your email.</div>
+  <h1 class="section-title">Gestión de Plantas</h1>
+  <button mat-raised-button color="primary" (click)="openAddPlantForm()" class="add-plant-button">
+    <mat-icon>add</mat-icon>
+    Agregar Planta
+  </button>
 </div>
-<div class="container">
-  <app-plants></app-plants>
+
+<!-- Indicador de carga -->
+<div *ngIf="isLoading" class="loading">
+  <mat-spinner></mat-spinner>
 </div>
-</body>
 
+<!-- Mensaje de error -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
 
+<!-- Lista de plantas -->
+<div class="plant-cards" *ngIf="!isLoading && !errorMessage">
+  <div *ngFor="let plant of plants" class="plant-card">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{ plant.name }}</mat-card-title>
+        <mat-card-subtitle>Estación: {{ plant.stationId }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="plant.plantImage" alt="{{ plant.name }}" class="plant-image" />
+      <mat-card-content>
+        <p class="plant-status">Estado: Activo</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Mensaje cuando no hay plantas -->
+<div *ngIf="!isLoading && plants.length === 0 && !errorMessage" class="no-plants">
+  No hay plantas para mostrar.
+</div>

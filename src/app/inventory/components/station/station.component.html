@@ -1,13 +1,53 @@
-<p>station works!</p>
-<div class="station-cards">
-  <div *ngFor="let station of stations" class="station-card">
-    <mat-card class="example-card" (click)="goToPlants(station.id)">
-      <img mat-card-image [src]="station.image" alt="{{station.name}}">
-      <mat-card-content>
-        <h3>{{station.name}}</h3>
-        <p>Created on: {{station.dateCreation}}</p>
-      </mat-card-content>
-    </mat-card>
+<div class="create-station-modal">
+  <div class="modal-content">
+    <div class="left-section">
+      <div class="image-section">
+        <img src="assets/placeholder-image.jpg" alt="Station Image" class="station-image">
+      </div>
+      <div class="button-group">
+        <button mat-raised-button color="warn" (click)="addStation()" class="save-button">
+          <mat-icon>save</mat-icon> Guardar
+        </button>
+        <button mat-button color="primary" (click)="cancel()" class="cancel-button">
+          <mat-icon>cancel</mat-icon> Cancelar
+        </button>
+      </div>
+    </div>
+    <div class="right-section">
+      <h2 class="modal-title">Crear Estación</h2>
+      <div class="station-form">
+        <!-- Campo Nombre de la Estación -->
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field full-width">
+            <mat-label>Nombre de la Estación</mat-label>
+            <input matInput [(ngModel)]="newStation.stationName">
+            <mat-icon matSuffix>label</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Campo Descripción con tamaño completo -->
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field full-width">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput rows="3" [(ngModel)]="newStation.description"></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!-- Campos Fecha de Fin e Imagen de la Estación en una sola fila -->
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field half-width">
+            <mat-label>Fecha de Fin</mat-label>
+            <input matInput type="date" [(ngModel)]="newStation.endDate">
+            <mat-icon matSuffix>calendar_today</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field half-width">
+            <mat-label>Imagen de la Estación</mat-label>
+            <input matInput [(ngModel)]="newStation.stationImage">
+            <mat-icon matSuffix>image</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-

@@ -1,15 +1,37 @@
-<p>plants works!</p>
-<div class="plant-cards">
-  <div *ngFor="let plant of plants" class="plant-card">
-    <mat-card class="example-card" (click)="goToReport()">
-      <mat-card-header>
-        <mat-card-title>{{ plant.name }}</mat-card-title>
-        <mat-card-subtitle>ID: {{ plant.id }}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="plant.image" alt="{{plant.name}}" class="plant-image">
-      <mat-card-content>
-        <p>Status</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div>
+<h2 mat-dialog-title>
+  <mat-icon class="mat-icon-title">nature</mat-icon>
+  Agregar Planta
+</h2>
+<form [formGroup]="addPlantForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre de la Planta</mat-label>
+      <mat-icon matPrefix>spa</mat-icon>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="addPlantForm.get('name')?.hasError('required')">
+        El nombre de la planta es requerido.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>URL de Imagen</mat-label>
+      <mat-icon matPrefix>link</mat-icon>
+      <input matInput formControlName="plantImage" required />
+      <mat-error *ngIf="addPlantForm.get('plantImage')?.hasError('required')">
+        La URL de la imagen es requerida.
+      </mat-error>
+      <mat-error *ngIf="addPlantForm.get('plantImage')?.hasError('pattern')">
+        Introduce una URL de imagen válida.
+      </mat-error>
+    </mat-form-field>
+    <!-- Mensaje de error -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()" [disabled]="isSubmitting">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!addPlantForm.valid || isSubmitting">
+      Guardar
+    </button>
+  </mat-dialog-actions>
+</form>

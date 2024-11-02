@@ -1,0 +1,36 @@
+
+<div class="login-container">
+  <mat-card class="login-box">
+    <div class="logo-container">
+      <img src="assets/logo/image.png" alt="Logo" class="logo">
+    </div>
+    <h2>Iniciar Sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput type="email" id="email" formControlName="email" placeholder="Ingrese su correo" required>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          El correo electrónico es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+          Ingrese un correo electrónico válido.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" id="password" formControlName="password" placeholder="Ingrese su contraseña" required>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          La contraseña es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+          La contraseña debe tener al menos 6 caracteres.
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+    </form>
+    <div class="footer">
+      <a href="login/recover">¿Olvidaste tu contraseña?</a>
+      <a href="crops/registration"> -  Registrate</a>
+    </div>
+  </mat-card>
+</div>

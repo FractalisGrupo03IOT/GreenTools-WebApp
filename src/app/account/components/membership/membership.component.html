@@ -1,1 +1,43 @@
-<p>membership works!</p>
+<app-toolbar></app-toolbar>
+<div class="membership-container">
+  <!-- Columna Izquierda - Planes de Membresía -->
+  <div class="membership-plans">
+    <h3>Opciones de Membresía</h3>
+    <mat-card class="membership-card">
+      <img src="assets/hola.webp" alt="Plan Monocultivo" class="plan-image" />
+      <mat-card-title>Monocultivo</mat-card-title>
+      <mat-card-content>
+        <p>Acceso a funciones básicas para manejo de un solo cultivo.</p>
+        <h4>20$</h4>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openPurchaseDialog(Plan.MONOCULTURE)">Suscribirse</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="membership-card">
+      <img src="assets/img.jpeg" alt="Plan Multicultivo" class="plan-image" />
+      <mat-card-title>Multicultivo</mat-card-title>
+      <mat-card-content>
+        <p>Acceso a funciones avanzadas para manejo de múltiples cultivos.</p>
+        <h4>50$</h4>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openPurchaseDialog(Plan.MULTICROPPING)">Suscribirse</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- Columna Derecha - Estado de Membresía -->
+  <div class="membership-status">
+    <h3>Estado de Suscripción</h3>
+    <div *ngIf="hasMembership; else noMembership">
+      <p>Estás suscrito al plan <strong>{{membershipPlan | titlecase}}</strong>.</p>
+      <p>Tu suscripción es válida hasta el {{subscriptionExpiration | date}}</p>
+    </div>
+    <ng-template #noMembership>
+      <p>No tienes una suscripción activa actualmente.</p>
+      <p>Elige un plan en las opciones de la izquierda para comenzar.</p>
+    </ng-template>
+  </div>
+</div>

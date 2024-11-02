@@ -1,0 +1,112 @@
+/* Contenedor principal con diseño de dos columnas */
+.membership-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px; /* Reducido para mayor compactación */
+  background-color: #f0f3f5;
+}
+
+/* Columnas izquierda y derecha */
+.membership-plans, .membership-status {
+  width: 46.5%; /* Ajustado para ocupar menos espacio */
+}
+
+/* Estilo del título de cada sección */
+.membership-plans h3, .membership-status h3 {
+  font-family: 'Roboto', sans-serif;
+  color: #3A795D;
+  font-size: 1.25em; /* Tamaño ligeramente reducido */
+  margin-bottom: 6px; /* Margen reducido para ahorrar espacio */
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  animation: shadow-pulse 1.5s infinite;
+}
+
+/* Estilo de las tarjetas de membresía */
+.membership-card {
+  width: 100%;
+  margin: 6px 0; /* Margen reducido para menor altura total */
+  border-radius: 5px; /* Bordes más pequeños */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s;
+}
+
+.membership-card:hover {
+  transform: scale(1.03); /* Efecto hover más sutil */
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+  background-color: #e8f5ee;
+}
+
+/* Imagen en la parte superior de cada tarjeta */
+.plan-image {
+  width: 100%;
+  height: 105px; /* Altura de imagen reducida */
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* Estilo del título de la tarjeta */
+mat-card-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.05em; /* Tamaño reducido */
+  color: #3A795D;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 6px; /* Margen reducido */
+}
+
+/* Contenido de la tarjeta */
+mat-card-content {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.83em; /* Fuente más compacta */
+  color: #3A795D;
+  padding: 6px; /* Padding reducido */
+  text-align: center;
+}
+
+/* Efecto hover en el botón de suscribirse */
+button[mat-raised-button] {
+  background-color: #3A795D;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px; /* Bordes más pequeños */
+  padding: 5px 12px; /* Tamaño más compacto */
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #2d5947;
+  transform: scale(1.02); /* Efecto hover más sutil */
+}
+
+/* Estilo de la columna de estado de suscripción */
+.membership-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px; /* Padding reducido */
+  border-radius: 5px; /* Bordes más pequeños */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1s ease;
+}
+
+/* Estilo de texto dentro del estado de suscripción */
+.membership-status p {
+  font-family: 'Roboto', sans-serif;
+  color: #3A795D;
+  font-size: 0.9em; /* Fuente más pequeña */
+  text-align: center;
+  margin-bottom: 5px; /* Margen inferior reducido */
+}
+
+/* Estilo del precio en cada tarjeta */
+mat-card-content h4 {
+  color: #3A795D;
+  font-size: 1.05em; /* Tamaño de fuente más pequeño */
+  font-weight: bold;
+  margin: 6px 0; /* Margen reducido */
+  text-align: center;
+}

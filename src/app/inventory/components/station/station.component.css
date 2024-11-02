@@ -1,16 +1,184 @@
-.station-cards {
+/* Overlay y Contenedor del Modal */
+.create-station-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Contenido del Modal */
+.modal-content {
+  display: flex;
+  background: white;
+  padding: 20px; /* Reducir padding */
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.6s ease;
+  max-width: 75vw;
+  width: 100%;
+  height: 65vh; /* Reducir la altura total */
+  gap: 20px;
+  flex-direction: row;
+}
+
+/* Sección Izquierda */
+.left-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px; /* Reducir padding */
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  width: 35%;
+}
+
+.image-section {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.station-image {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.station-image:hover {
+  transform: scale(1.05);
+}
+
+/* Grupo de Botones */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 8px 0; /* Ajuste en el padding */
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+/* Estilo del Botón Guardar */
+.save-button {
+  background-color: #4CAF50; /* Verde más suave */
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #45A049;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.3);
+}
+
+/* Estilo del Botón Cancelar */
+.cancel-button {
+  background-color: #B0BEC5; /* Gris neutro */
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #90A4AE;
+  box-shadow: 0 4px 8px rgba(128, 128, 128, 0.3);
+}
+
+/* Sección Derecha */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 65%;
+}
+
+/* Título del Modal */
+.modal-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.6em;
+  color: #388e3c;
+  animation: fadeInTitle 0.6s ease;
+}
+
+/* Formulario */
+.station-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Reducir el espacio entre filas */
+}
+
+.form-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
-.station-card {
-  width: 200px;
+/* Campos del Formulario */
+.full-width {
+  width: 100%;
 }
 
-.example-card {
-  max-width: 200px;
-  margin: auto;
-  text-align: center;
+.half-width {
+  width: 48%;
+}
+
+.form-field {
+  transition: all 0.3s ease;
+}
+
+.mat-form-field-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-radius: 8px;
+}
+
+.mat-form-field-label {
+  color: #757575;
+  font-size: 0.9em;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-gap {
+  transition: all 0.3s ease;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+  color: #757575;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 12px 8px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper .mat-form-field-infix {
+  font-size: 1.1em;
+  color: #424242;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-30px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes fadeInTitle {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -1,9 +1,9 @@
-export interface Station {
-  id: number;
+export interface StationRaw {
+  Id: number;
   userId: number;
   stationName: string;
   description: string;
   stationImage: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
 }

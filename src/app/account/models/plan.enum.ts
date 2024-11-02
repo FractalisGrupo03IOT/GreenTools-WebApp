@@ -1,0 +1,4 @@
+export enum Plan {
+  MONOCULTURE = 'MONOCULTURE',
+  MULTICROPPING = 'MULTICROPPING'
+}

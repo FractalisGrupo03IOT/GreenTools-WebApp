@@ -1,0 +1,118 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.section-title {
+  margin: 0;
+}
+
+.add-plant-button {
+  display: flex;
+  align-items: center;
+}
+
+.add-plant-button mat-icon {
+  margin-right: 8px;
+}
+
+.plant-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.plant-card {
+  width: 300px;
+}
+
+.example-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.example-card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.plant-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.plant-status {
+  font-weight: bold;
+  color: green;
+}
+
+.loading, .error-message, .no-plants {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.section-title {
+  margin: 0;
+}
+
+.add-plant-button {
+  display: flex;
+  align-items: center;
+}
+
+.add-plant-button mat-icon {
+  margin-right: 8px;
+}
+
+.plant-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.plant-card {
+  width: 300px;
+}
+
+.example-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.example-card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.plant-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.plant-status {
+  font-weight: bold;
+  color: green;
+}
+
+.loading, .error-message, .no-plants {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}

@@ -1,10 +1,44 @@
-<body>
+<!-- src/app/inventory/components/crop-inventory/crop-inventory.component.html -->
 <app-toolbar></app-toolbar>
-<div class="section">
-  <div class="text-large">Add Flowerpot</div>
-  <div class="text-small">Find the pot code in your email.</div>
-</div>
 <div class="container">
-  <app-station></app-station>
+  <!-- Indicador de carga -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <mat-spinner></mat-spinner>
+    <p>Cargando estaciones...</p>
+  </div>
+
+  <!-- Mostrar estaciones solo cuando no está cargando y hay estaciones disponibles -->
+  <ng-container *ngIf="!isLoading && stations.length > 0; else noStations">
+    <div *ngFor="let station of stations; trackBy: trackByStationId" class="station-card">
+      <img class="station-card-image" [src]="station.stationImage" alt="Imagen de la estación">
+      <div class="station-card-body">
+        <div class="station-card-header">
+          <h2 class="station-card-title">{{ station.stationName }}</h2>
+          <span class="station-card-subtitle">Datos de la Estación</span>
+        </div>
+        <div class="station-card-content">
+          <p><strong>Descripción:</strong> {{ station.description }}</p>
+          <p><strong>Fecha de Inicio:</strong> {{ station.startDate | date:'dd-MM-yyyy' }}</p>
+          <p><strong>Fecha de Fin:</strong> {{ station.endDate | date:'dd-MM-yyyy' }}</p>
+        </div>
+        <div class="station-card-footer">
+          <button mat-raised-button color="primary" (click)="goToPlants(station.id)" [disabled]="!station.id">
+            Ver Plantas
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Plantilla para cuando no hay estaciones -->
+  <ng-template #noStations>
+    <div class="no-stations">
+      <p>No se encontraron estaciones creadas.</p>
+    </div>
+  </ng-template>
 </div>
-</body>
+
+<!-- Botón de agregar estación -->
+<button mat-fab color="primary" class="add-icon" (click)="openStationModal()">
+  <mat-icon>add</mat-icon>
+</button>

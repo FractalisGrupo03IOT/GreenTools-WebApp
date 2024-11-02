@@ -1,0 +1,39 @@
+<!-- src/app/components/purchase-dialog/purchase-dialog.component.html -->
+<h2 mat-dialog-title class="dialog-title">Pasarela de Pago - {{ data.plan | titlecase }}</h2>
+
+<img src="assets/card.png" alt="Tarjeta de Crédito" class="credit-card-image-large animate__animated animate__pulse animate__infinite" />
+
+<form [formGroup]="purchaseForm" (ngSubmit)="onSubmit()" class="payment-form">
+  <div class="input-row">
+    <mat-form-field appearance="outline" class="mat-form-field-half">
+      <mat-label>Número de Tarjeta</mat-label>
+      <input matInput formControlName="cardNumber" placeholder="Número de Tarjeta" maxlength="16" type="text" required>
+      <mat-error *ngIf="purchaseForm.get('cardNumber')?.hasError('required')">El número de tarjeta es obligatorio</mat-error>
+      <mat-error *ngIf="purchaseForm.get('cardNumber')?.hasError('pattern')">El número de tarjeta debe tener 16 dígitos</mat-error>
+      <mat-error *ngIf="purchaseForm.get('cardNumber')?.hasError('luhn')">Número de tarjeta inválido</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="input-row">
+    <mat-form-field appearance="outline" class="mat-form-field-half">
+      <mat-label>Mes</mat-label>
+      <input matInput formControlName="month" placeholder="Mes" maxlength="2" type="text" required>
+      <mat-error *ngIf="purchaseForm.get('month')?.hasError('required')">El mes es obligatorio</mat-error>
+      <mat-error *ngIf="purchaseForm.get('month')?.hasError('pattern')">Formato no válido. Debe ser MM</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="mat-form-field-half">
+      <mat-label>Año</mat-label>
+      <input matInput formControlName="year" placeholder="Año" maxlength="4" type="text" required>
+      <mat-error *ngIf="purchaseForm.get('year')?.hasError('required')">El año es obligatorio</mat-error>
+      <mat-error *ngIf="purchaseForm.get('year')?.hasError('pattern')">Formato no válido. Debe ser YYYY</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- Reincorporar datePayment si es necesario -->
+
+  <div mat-dialog-actions class="action-buttons">
+    <button mat-button (click)="onCancel()" class="cancel-button">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!purchaseForm.valid || isSubmitting" class="buy-button">Comprar</button>
+  </div>
+</form>

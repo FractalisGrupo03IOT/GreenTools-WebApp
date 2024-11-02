@@ -46,3 +46,6 @@ button {
   background-color: var(--accent-color); /* Botón de acción rojo */
   color: var(--background-color); /* Texto blanco */
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
