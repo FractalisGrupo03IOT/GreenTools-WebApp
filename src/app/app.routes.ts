@@ -8,6 +8,7 @@ import { CropPlantsComponent } from './public/pages/crop-plants/crop-plants.comp
 import { CropDataTableComponent } from './public/pages/crop-data-table/crop-data-table.component';
 import { MembershipComponent } from "./account/components/membership/membership.component";
 import { WelcomeUserComponent } from "./profile/components/welcome-user/welcome-user.component";
+import {DataCropComponent} from "./cropStatus/components/data-crop/data-crop.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,6 +18,7 @@ export const routes: Routes = [
   { path: 'crops/registration', component: CreateUserComponent },
   { path: 'crops/station', component: CropInventoryComponent },
   { path: 'crops/plants/:stationId', component: CropPlantsComponent },
+  { path: 'crops/plants/:stationId/datos/:plantId', component: DataCropComponent },
   { path: 'crops/plants/report', component: CropDataTableComponent },
   { path: 'crops/profile', component: WelcomeUserComponent },
 ];

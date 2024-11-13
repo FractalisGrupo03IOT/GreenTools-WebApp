@@ -11,3 +11,11 @@
   color: red;
   margin-top: 10px;
 }
+.plant-card {
+  max-width: 300px;
+  margin: 10px;
+}
+
+.mat-card-actions {
+  justify-content: center;
+}

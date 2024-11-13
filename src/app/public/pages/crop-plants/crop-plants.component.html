@@ -1,5 +1,4 @@
 <app-toolbar></app-toolbar>
-
 <div class="section">
   <h1 class="section-title">Gestión de Plantas</h1>
   <button mat-raised-button color="primary" (click)="openAddPlantForm()" class="add-plant-button">
@@ -8,9 +7,14 @@
   </button>
 </div>
 
-<!-- Indicador de carga -->
+<!-- Indicador de carga global -->
 <div *ngIf="isLoading" class="loading">
   <mat-spinner></mat-spinner>
+</div>
+
+<!-- Mensaje de éxito -->
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
 </div>
 
 <!-- Mensaje de error -->
@@ -30,6 +34,26 @@
       <mat-card-content>
         <p class="plant-status">Estado: Activo</p>
       </mat-card-content>
+      <mat-card-actions>
+        <!-- Botón Activar Sensor -->
+        <button
+          mat-button
+          [ngClass]="{'button-active': plant.hasCropData, 'button-inactive': !plant.hasCropData}"
+          (click)="activateSensor(plant)"
+          [disabled]="plant.hasCropData"
+        >
+          Activar Sensor
+        </button>
+
+        <!-- Botón Ver Datos -->
+        <!-- Usa stationId en el enlace junto con plant.id para navegar correctamente -->
+        <button mat-button color="accent" [routerLink]="['/crops/plants', stationId, 'datos', plant.id]">
+          Ver Datos
+        </button>
+
+      </mat-card-actions>
+      <!-- Indicador de carga por planta -->
+      <mat-spinner *ngIf="plant.isChecking" diameter="30"></mat-spinner>
     </mat-card>
   </div>
 </div>

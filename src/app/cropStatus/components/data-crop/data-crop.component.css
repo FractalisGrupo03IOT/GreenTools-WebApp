@@ -1,13 +1,36 @@
-table {
-  width: 100%;
+/* Estilo para el título */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16px;
 }
 
-.mat-header-cell {
-  background-color: #A8D5BA; /* Fondo de encabezado */
-  color: #3A795D; /* Color del texto del encabezado */
+/* Contenedor de datos */
+.data-content {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
 }
 
-.mat-cell {
-  background-color: #FFFFFF; /* Fondo de las celdas */
-  color: #3A795D; /* Color del texto de las celdas */
+/* Estilo del botón */
+button[mat-button] {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[mat-button]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo de texto */
+p {
+  font-size: 16px;
+  color: #666;
 }

@@ -1,7 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, NgIterable, OnInit} from '@angular/core';
 import {Plant} from "../../models/plant.model";
 import {CropsService} from "../../services/crops.service";
-import {MatCardModule} from "@angular/material/card";
+import {MatCardImage, MatCardLgImage, MatCardModule, MatCardTitle} from "@angular/material/card";
 import {CommonModule} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
@@ -15,11 +15,12 @@ import {
   MatDialogTitle
 } from "@angular/material/dialog";
 import {MatIcon} from "@angular/material/icon";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-plants',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatFormField, ReactiveFormsModule, MatInput, MatButton, MatLabel, MatDialogTitle, MatDialogActions, MatIcon, MatDialogContent, MatError],
+  imports: [CommonModule, MatCardModule, MatFormField, ReactiveFormsModule, MatInput, MatButton, MatLabel, MatDialogTitle, MatDialogActions, MatIcon, MatDialogContent, MatError, RouterLink, MatCardTitle, MatCardImage, MatCardLgImage],
   templateUrl: './plants.component.html',
   styleUrl: './plants.component.css'
 })
@@ -27,6 +28,7 @@ export class PlantsComponent implements OnInit {
   addPlantForm: FormGroup;
   isSubmitting: boolean = false;
   errorMessage: string = '';
+
 
   constructor(
     public dialogRef: MatDialogRef<PlantsComponent>,

@@ -1,30 +1,35 @@
-import { MatDialog } from '@angular/material/dialog';
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { PlantsComponent } from "../../../inventory/components/plants/plants.component";
 import { StationComponent } from "../../../inventory/components/station/station.component";
 import { ToolbarComponent } from "../../components/toolbar/toolbar.component";
-import {MatButton} from "@angular/material/button";
-import {MatIcon} from "@angular/material/icon";
-import {StationsService} from "../../../inventory/services/stations.service";
-import {CropsService} from "../../../inventory/services/crops.service";
-import {Plant} from "../../../inventory/models/plant.model";
+import { MatButton } from "@angular/material/button";
+import { MatIcon } from "@angular/material/icon";
+import { CropsService } from "../../../inventory/services/crops.service";
+import {CropData, CropDataService} from "../../../inventory/services/crop-data.service";
+import { Plant } from "../../../inventory/models/plant.model";
 import {
   MatCard,
+  MatCardActions,
   MatCardContent,
   MatCardHeader,
   MatCardImage,
   MatCardSubtitle,
   MatCardTitle
 } from "@angular/material/card";
-import {NgForOf, NgIf} from "@angular/common";
-import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-
+import {CommonModule, NgClass, NgForOf, NgIf} from "@angular/common";
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import {ActivatedRoute, ParamMap, RouterLink} from "@angular/router";
+import {catchError, forkJoin, of} from "rxjs";
+import {DataCropComponent} from "../../../cropStatus/components/data-crop/data-crop.component";
 
 @Component({
   selector: 'app-crop-plants',
   standalone: true,
   imports: [
+    MatDialogModule,
+    CommonModule,
+    DataCropComponent,
     PlantsComponent,
     StationComponent,
     ToolbarComponent,
@@ -38,22 +43,28 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
     MatCardSubtitle,
     MatCardTitle,
     MatProgressSpinner,
-    NgIf
+    NgIf,
+    MatCardActions,
+    NgClass,
+    RouterLink
   ],
   templateUrl: './crop-plants.component.html',
   styleUrls: ['./crop-plants.component.css']
 })
 export class CropPlantsComponent implements OnInit {
   stationId: number | null = null;
-  plants: Plant[] = []; // Lista de plantas para mostrar en la vista
-  isLoading: boolean = false; // Indicador de carga
-  errorMessage: string = ''; // Mensaje de error
+  plants: PlantWithStatus[] = [];
+  isLoading: boolean = false;
+  errorMessage: string = '';
+  successMessage: string = '';
 
   constructor(
     private dialog: MatDialog,
     private cropsService: CropsService,
+    private cropDataService: CropDataService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -74,9 +85,44 @@ export class CropPlantsComponent implements OnInit {
       this.isLoading = true;
       this.cropsService.getPlants(this.stationId).subscribe(
         (plants) => {
-          this.plants = plants;
-          this.isLoading = false;
-          console.log('Plantas cargadas:', this.plants);
+          // Convertir cada planta a PlantWithStatus
+          this.plants = plants.map(plant => ({
+            ...plant,
+            hasCropData: false, // Valor por defecto
+            isChecking: true // Indicador de carga por planta
+          }));
+
+          // Crear un array de observables para verificar cropData de cada planta
+          const observables = this.plants.map(plant =>
+            this.cropDataService.getCropDataByPlantId(plant.id).pipe(
+              catchError(error => {
+                // Manejar errores individualmente
+                console.error(`Error al obtener cropData para la planta ${plant.id}:`, error);
+                return of(null);
+              })
+            )
+          );
+
+          // Ejecutar todas las solicitudes GET en paralelo
+          forkJoin(observables).subscribe(
+            (results: (CropData | null)[]) => {
+              results.forEach((result, index) => {
+                if (result) {
+                  this.plants[index].hasCropData = true;
+                } else {
+                  this.plants[index].hasCropData = false;
+                }
+                this.plants[index].isChecking = false; // Finalizar indicador de carga por planta
+                console.log(`Planta ID: ${this.plants[index].id}, hasCropData: ${this.plants[index].hasCropData}`);
+              });
+              this.isLoading = false;
+            },
+            (error) => {
+              console.error('Error al verificar cropData:', error);
+              this.errorMessage = 'Error al verificar el estado de los sensores.';
+              this.isLoading = false;
+            }
+          );
         },
         (error) => {
           console.error('Error al cargar las plantas:', error);
@@ -92,12 +138,12 @@ export class CropPlantsComponent implements OnInit {
     if (this.stationId !== null && this.stationId !== undefined) {
       const dialogRef = this.dialog.open(PlantsComponent, {
         width: '400px',
-        data: { stationId: this.stationId },
+        data: {stationId: this.stationId},
       });
 
       dialogRef.afterClosed().subscribe((result) => {
         if (result) {
-          this.loadPlants(); // Recargar la lista de plantas al cerrar el modal exitosamente
+          this.loadPlants();
         }
       });
     } else {
@@ -105,4 +151,40 @@ export class CropPlantsComponent implements OnInit {
       this.errorMessage = 'No se pudo abrir el formulario de agregar planta.';
     }
   }
+
+  // Método para activar el sensor
+  activateSensor(plant: PlantWithStatus): void {
+    this.cropDataService.activateSensor(plant.id).subscribe(
+      (response) => {
+        console.log('Sensor activado para la planta:', plant.id);
+        this.successMessage = `Sensor activado para la planta "${plant.name}".`;
+        this.errorMessage = ''; // Limpiar cualquier mensaje de error previo
+        plant.hasCropData = true; // Actualizar el estado de la planta
+      },
+      (error) => {
+        console.error('Error al activar el sensor:', error);
+        this.errorMessage = `Error al activar el sensor para la planta "${plant.name}".`;
+        this.successMessage = ''; // Limpiar cualquier mensaje de éxito previo
+      }
+    );
+  }
+
+  // Método para abrir el modal "Ver Datos"
+  verDatos(plant: PlantWithStatus): void {
+    console.log("Abriendo modal para planta:", plant); // Para verificar que se ejecute
+    const dialogRef = this.dialog.open(DataCropComponent, {
+      width: '600px',
+      data: { plant } // Opcional, pasa datos si es necesario
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('Modal de datos de cultivo cerrado');
+    });
+  }
+}
+
+// Extender la interfaz Plant para incluir el estado de cropData
+interface PlantWithStatus extends Plant {
+  hasCropData: boolean;
+  isChecking: boolean; // Para indicar que se está verificando el estado
 }
