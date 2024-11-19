@@ -1,4 +1,8 @@
-/* Estilo para el título */
+/* General Styles */
+.title {
+  margin-left: 100px;
+}
+
 h2 {
   font-size: 24px;
   font-weight: bold;
@@ -6,31 +10,111 @@ h2 {
   margin-bottom: 16px;
 }
 
-/* Contenedor de datos */
-.data-content {
-  background-color: #f9f9f9;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 16px;
+/* Crop Data Configuration */
+.cropData {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Estilo del botón */
+/* Row Flexbox Configuration */
+.row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 20px 20px 20px;
+
+}
+
+/* Plant Section */
+.plant {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center-align text */
+
+
+
+}
+
+.plantData {
+  display: flex;               /* Habilita Flexbox */
+  justify-content: center;     /* Centra horizontalmente */
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #e6f4ea; /* Suave verde */
+  border-radius: 12px; /* Esquinas redondeadas */
+  width: 50%; /* Ocupa solo el 50% del contenedor padre */
+  height: 100%;
+  margin: 0 10px; /* Centrado horizontal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: Sombra */
+}
+
+/* Plant Image */
+.plantImage {
+   /* 50% of the parent container */
+  width: 80%;
+
+  height: auto;
+  max-height: 250px;
+ /* Maintain aspect ratio */
+  display: block; /* Ensure it behaves like a block-level element */
+  margin: 0 auto; /* Center the image horizontally */
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Plant Name */
+.plantName {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 8px;
+}
+
+/* Chart Section */
+.chart {
+  flex: 0.8;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px;
+}
+
+.chart canvas {
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  max-height: 300px;
+}
+
+/* Button Container */
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 button[mat-button] {
+  width: 30%; /* Botón ocupa el 40% del ancho de su contenedor padre */
+/* Limita el ancho máximo */
   background-color: #007bff;
   color: #fff;
   font-weight: bold;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center; /* Asegura que el texto esté centrado */
+  margin: 25px auto;
 }
 
 button[mat-button]:hover {
   background-color: #0056b3;
-}
-
-/* Estilo de texto */
-p {
-  font-size: 16px;
-  color: #666;
 }

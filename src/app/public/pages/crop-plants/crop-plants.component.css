@@ -1,4 +1,10 @@
 /* src/app/components/crop-plants/crop-plants.component.css */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16px;
+}
 
 .success-message {
   color: green;
@@ -65,4 +71,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.section {
+  margin-left: 5%;
 }

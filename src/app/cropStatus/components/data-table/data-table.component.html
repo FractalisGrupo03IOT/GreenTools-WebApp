@@ -1,0 +1,38 @@
+<app-toolbar></app-toolbar>
+<div class="history-table-container">
+  <table mat-table [dataSource]="dataSource" class="history-table">
+
+    <!-- Columna para los números -->
+    <ng-container matColumnDef="numero">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td> <!-- Índice de la fila -->
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{element.dataDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="humedad">
+      <th mat-header-cell *matHeaderCellDef>Humedad %</th>
+      <td mat-cell *matCellDef="let element">{{element.humidity | number:'1.2-2'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="temperatura">
+      <th mat-header-cell *matHeaderCellDef>Temperatura °C</th>
+      <td mat-cell *matCellDef="let element">{{element.temperature | number:'1.2-2'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="uv">
+      <th mat-header-cell *matHeaderCellDef>Indice UV</th>
+      <td mat-cell *matCellDef="let element">{{element.uv | number:'1.2-2'}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row
+        [class.bold]="isRowClicked(element)"
+        (click)="rowClicked(element)"
+        *matRowDef="let element; columns: displayedColumns;">
+    </tr>
+  </table>
+</div>

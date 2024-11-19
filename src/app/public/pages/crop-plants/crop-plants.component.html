@@ -1,6 +1,6 @@
 <app-toolbar></app-toolbar>
 <div class="section">
-  <h1 class="section-title">Gestión de Plantas</h1>
+  <h2 class="title">Gestión de plantas</h2>
   <button mat-raised-button color="primary" (click)="openAddPlantForm()" class="add-plant-button">
     <mat-icon>add</mat-icon>
     Agregar Planta
@@ -31,18 +31,17 @@
         <mat-card-subtitle>Estación: {{ plant.stationId }}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]="plant.plantImage" alt="{{ plant.name }}" class="plant-image" />
-      <mat-card-content>
-        <p class="plant-status">Estado: Activo</p>
-      </mat-card-content>
+
       <mat-card-actions>
         <!-- Botón Activar Sensor -->
         <button
+
           mat-button
           [ngClass]="{'button-active': plant.hasCropData, 'button-inactive': !plant.hasCropData}"
-          (click)="activateSensor(plant)"
-          [disabled]="plant.hasCropData"
+          [disabled]="true"
+
         >
-          Activar Sensor
+          {{ plant.hasCropData ? 'Estado activo' : 'Estado inactivo' }}
         </button>
 
         <!-- Botón Ver Datos -->

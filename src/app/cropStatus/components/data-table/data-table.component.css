@@ -1,0 +1,39 @@
+.history-table-container {
+  width: 80%;
+  max-width: 1500px;
+  margin: 3% auto;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.history-table {
+  height: 100px;
+}
+
+.history-table th {
+  background-color: #3A795D;
+  color: white;
+}
+
+.history-table td {
+  font-size: 15px;
+  width: 20%;
+}
+
+@media (max-width: 768px) {
+  .title{
+    display: none;
+  }
+
+  .history-table-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .history-table {
+    margin-top: 30px;
+  }
+}
+

@@ -9,6 +9,7 @@ import { CropDataTableComponent } from './public/pages/crop-data-table/crop-data
 import { MembershipComponent } from "./account/components/membership/membership.component";
 import { WelcomeUserComponent } from "./profile/components/welcome-user/welcome-user.component";
 import {DataCropComponent} from "./cropStatus/components/data-crop/data-crop.component";
+import {DataTableComponent} from "./cropStatus/components/data-table/data-table.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +20,9 @@ export const routes: Routes = [
   { path: 'crops/station', component: CropInventoryComponent },
   { path: 'crops/plants/:stationId', component: CropPlantsComponent },
   { path: 'crops/plants/:stationId/datos/:plantId', component: DataCropComponent },
+
+  { path: 'cropTable/:plantId', component: DataTableComponent },
+
   { path: 'crops/plants/report', component: CropDataTableComponent },
   { path: 'crops/profile', component: WelcomeUserComponent },
 ];

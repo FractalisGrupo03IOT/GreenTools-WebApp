@@ -1,6 +1,37 @@
 <app-toolbar></app-toolbar>
-<h2>Ver Datos de la Planta</h2>
-<div class="data-content">
-  <p>Mostrando detalles para la planta ID: {{ plantId }}</p>
+<h2 class="title">Datos de las últimas 24 horas</h2>
+<div class="cropData">
+  <div class="row">
+    <div class="plant">
+      <div class="plantData">
+        <img
+          class="plantImage"
+          mat-card-image
+          [src]="plant?.plantImage"
+          alt="{{ plant?.name }}"
+        />
+        <h3 class="plantName">{{ plant?.name }}</h3>
+      </div>
+
+    </div>
+    <div class="chart">
+      <h2>Humidity Chart</h2>
+      <canvas id="humidityChart"></canvas>
+    </div>
+  </div>
+  <div class="row">
+    <div class="chart">
+      <h2>Temperature Chart</h2>
+      <canvas id="temperatureChart"></canvas>
+    </div>
+    <div class="chart">
+      <h2>UV Chart</h2>
+      <canvas id="uvChart"></canvas>
+    </div>
+  </div>
+  <div class="button-container">
+    <button mat-button color="accent" [routerLink]="['/cropTable', plantId]">
+      Ver Datos
+    </button>
+  </div>
 </div>
-<button mat-button [routerLink]="['/crops/plants', stationId]">Regresar</button>
